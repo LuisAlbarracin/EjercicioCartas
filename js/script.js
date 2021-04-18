@@ -10,7 +10,7 @@ function traerDatos() {
     .catch((err) => console.log(err));
 }
 
-function llenarTabla(datos) {
+function llenarTabla(datos = JSON.parse(localStorage.getItem('cartas'))) {
   const tabla = document.getElementById("tabla");
   tabla.innerHTML = "";
 
@@ -33,12 +33,39 @@ function llenarTabla(datos) {
   }
 }
 
+function aumentarCantidad(numero) {
+  let cartas = JSON.parse(localStorage.getItem('cartas'))
+  for(let i=0; i < cartas.length; i++) {
+    if(cartas[i].numero == numero){
+      cartas[i].cantidad ++;
+      break;
+    }
+  }
+
+  localStorage.setItem("cartas", JSON.stringify(cartas));
+  llenarTabla()
+
+}
+
 function anadirCarta(numero, nombre) {
   let cartas = JSON.parse(localStorage.getItem("cartas"));
   let carta = { numero: numero, carta: nombre, cantidad: 0 };
   cartas.push(carta);
   localStorage.setItem("cartas", JSON.stringify(cartas));
   llenarTabla(cartas);
+}
+
+
+
+function ordenarCartas(){
+  let cartas = JSON.parse(localStorage.getItem("cartas"));
+  
+  localStorage.setItem("cartas", JSON.stringify(cartas));
+
+  cartas.sort((a, b) => b.cantidad - a.cantidad)
+  
+  llenarTabla(cartas)
+
 }
 
 const carta1 = document.getElementById("1");
@@ -55,26 +82,61 @@ const carta11 = document.getElementById("11");
 const carta12 = document.getElementById("12");
 const carta13 = document.getElementById("13");
 const guardar = document.getElementById("guardar");
+const ordenar = document.getElementById('ordenar');
 
 guardar.addEventListener("click", function (e) {
+  
+  e.preventDefault();
   const numero = document.getElementById("numero").value;
   const carta = document.getElementById("carta").value;
   anadirCarta(numero, carta);
-  e.preventDefault();
+  document.getElementById("numero").value = ""
+  document.getElementById("carta").value = ""
+
 });
 
-carta1.addEventListener("click", function () {});
-carta2.addEventListener("click", function () {});
-carta3.addEventListener("click", function () {});
-carta4.addEventListener("click", function () {});
-carta5.addEventListener("click", function () {});
-carta6.addEventListener("click", function () {});
-carta7.addEventListener("click", function () {});
-carta8.addEventListener("click", function () {});
-carta9.addEventListener("click", function () {});
-carta10.addEventListener("click", function () {});
-carta11.addEventListener("click", function () {});
-carta12.addEventListener("click", function () {});
-carta13.addEventListener("click", function () {});
+carta1.addEventListener("click", function () {
+  aumentarCantidad(1);
+});
+carta2.addEventListener("click", function () {
+  aumentarCantidad(2);
+});
+carta3.addEventListener("click", function () {
+  aumentarCantidad(3);
+});
+carta4.addEventListener("click", function () {
+  aumentarCantidad(4);
+});
+carta5.addEventListener("click", function () {
+  aumentarCantidad(5);
+});
+carta6.addEventListener("click", function () {
+  aumentarCantidad(6);
+});
+carta7.addEventListener("click", function () {
+  aumentarCantidad(7);
+});
+carta8.addEventListener("click", function () {
+  aumentarCantidad(8);
+});
+carta9.addEventListener("click", function () {
+  aumentarCantidad(9);
+});
+carta10.addEventListener("click", function () {
+  aumentarCantidad(10);
+});
+carta11.addEventListener("click", function () {
+  aumentarCantidad(11);
+});
+carta12.addEventListener("click", function () {
+  aumentarCantidad(12);
+});
+carta13.addEventListener("click", function () {
+  aumentarCantidad(13);
+});
+
+ordenar.addEventListener("click", function(){
+  ordenarCartas()
+})
 
 traerDatos();

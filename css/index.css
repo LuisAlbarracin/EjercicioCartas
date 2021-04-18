@@ -1,0 +1,13 @@
+form{
+    width: 100%;
+    height: auto;
+    align-self: center;
+    align-content: center;
+}
+
+.container{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    justify-self: center;
+}
