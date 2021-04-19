@@ -1,13 +1,23 @@
 form{
+    padding: 30px;
+    height: 100%;
+    margin-top: 30px;
+    text-align: center;
+    border-style: solid;
+    border-radius: 10px;
+
+}
+
+#login{
     width: 100%;
-    height: auto;
-    align-self: center;
-    align-content: center;
 }
 
 .container{
-    display: grid;
-    align-items: center;
+    
     justify-items: center;
-    justify-self: center;
+    padding: 10px;
+}
+
+.alert{
+    display: none;
 }

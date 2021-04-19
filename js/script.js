@@ -139,4 +139,8 @@ ordenar.addEventListener("click", function(){
   ordenarCartas()
 })
 
+if(!localStorage.getItem("nombreUsuario")){
+  window.location.href = 'index.html'
+}
+
 traerDatos();

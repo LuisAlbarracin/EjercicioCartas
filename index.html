@@ -21,30 +21,22 @@
     </nav>
 
     <div class="container">
-        <form>
-            <caption>Inicio de Sesión</caption>
-            <div class="row g-3 mb-3  align-items-center">
-                <div class="col-auto">
-                    <label for="inputPassword6" class="col-form-label">Usuario</label>
+            <form class="form">
+                <legend>Iniciar Sesión</legend>
+                <div class="mb-3">
+                  <label for="usuario" class="form-label">Usuario</label>
+                  <input type="text" class="form-control" id="usuario" required>
                 </div>
-                <div class="col-auto">
-                    <input type="password" id="usuario" class="form-control" required>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="password">
                 </div>
-            </div>
-            <div class="row g-3 mb-3  align-items-center">
-                <div class="col-auto">
-                    <label for="inputPassword6" class="col-form-label">Contraseña</label>
-                </div>
-                <div class="col-auto">
-                    <input type="password" id="password" class="form-control" required>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-danger" id="login">Ingresar</button>
-        </form>
+                <button type="submit" class="btn btn-primary" id="login">Ingresar</button>
+              </form>
     </div>
 
     <div class="alert alert-danger" role="alert" id="mensaje">
-        
+
     </div>
 
     <script src="js/index.js"></script>
